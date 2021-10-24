@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AdminLTE 3 | Dashboard</title>
+
+<!-- Google Font: Source Sans Pro -->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="plugin/fontawesome-free/css/all.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet"
+	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- Tempusdominus Bootstrap 4 -->
+<link rel="stylesheet"
+	href="plugin/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+<!-- iCheck -->
+<link rel="stylesheet"
+	href="plugin/icheck-bootstrap/icheck-bootstrap.min.css">
+<!-- JQVMap -->
+<link rel="stylesheet" href="plugin/jqvmap/jqvmap.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="dist/css/adminlte.min.css">
+<!-- overlayScrollbars -->
+<link rel="stylesheet"
+	href="plugin/overlayScrollbars/css/OverlayScrollbars.min.css">
+<!-- Daterange picker -->
+<link rel="stylesheet" href="plugin/daterangepicker/daterangepicker.css">
+<!-- summernote -->
+<link rel="stylesheet" href="plugin/summernote/summernote-bs4.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="plugin/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="plugin/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+	$.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="plugin/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="plugin/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="plugin/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="plugin/jqvmap/jquery.vmap.min.js"></script>
+<script src="plugin/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="plugin/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="plugin/moment/moment.min.js"></script>
+<script src="plugin/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script
+	src="plugin/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="plugin/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script
+	src="plugin/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="dist/js/pages/dashboard.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
+
+		<!-- Preloader -->
+		<div
+			class="preloader flex-column justify-content-center align-items-center">
+			<img class="animation__shake" src="dist/img/AdminLTELogo.png"
+				alt="AdminLTELogo" height="60" width="60">
+		</div>
+
+		<!-- Navbar -->
+		<nav
+			class="main-header navbar navbar-expand navbar-white navbar-light">
+			<!-- Left navbar links -->
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" data-widget="pushmenu"
+					href="#" role="button"><i class="fas fa-bars"></i></a></li>
+				<li class="nav-item d-none d-sm-inline-block"><a th:href="@{/}"
+					class="nav-link">Home</a></li>
+				<li class="nav-item d-none d-sm-inline-block"><a href=""
+					class="nav-link">Contact</a></li>
+			</ul>
+			<!-- Right navbar links -->
+			<ul class="navbar-nav ml-auto">
+				<!-- Navbar Search -->
+				<li class="nav-item"><a class="nav-link"
+					data-widget="navbar-search" href="#" role="button"> <i
+						class="fas fa-search"></i>
+				</a>
+					<div class="navbar-search-block">
+						<form class="form-inline" th:action="@{/searchProduct}"
+							method="get">
+							<input class="form-control form-control-navbar" type="search"
+								placeholder="Search" aria-label="Search" name="productName">
+							Chọn mức giá:<input type="number" name="minp"
+								class="form-control form-control-navbar" value="0"><span
+								style="color: white;"></span> đến <input type="number"
+								name="maxp" class="form-control form-control-navbar"
+								value="100000000">
+							<div class="input-group input-group-sm">
+								<div class="input-group-append">
+									<button class="btn btn-navbar" type="submit">
+										<i class="fas fa-search"></i>
+									</button>
+									<button class="btn btn-navbar" type="button"
+										data-widget="navbar-search">
+										<i class="fas fa-times"></i>
+									</button>
+								</div>
+							</div>
+						</form>
+					</div></li>
+			</ul>
+		</nav>
+		<!-- /.navbar -->
+
+		<!-- Main Sidebar Container -->
+		<aside class="main-sidebar sidebar-dark-primary elevation-4">
+			<!-- Brand Logo -->
+			<a th:href="@{/}" class="brand-link"> <img
+				src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+				class="brand-image img-circle elevation-3" style="opacity: .8">
+				<span class="brand-text font-weight-light">AdminLTE 3</span>
+			</a>
+
+			<!-- Sidebar -->
+			<div class="sidebar">
+				<!-- Sidebar user panel (optional) -->
+				<div class="user-panel mt-3 pb-3 mb-3 d-flex" th:object="${user}">
+					<div class="image">
+						<a href="" data-toggle="modal" data-target="#changeImageModal">
+							<img src="" class="img-circle elevation-2" alt="User Image"
+							style="size: 100px;">
+						</a>
+					</div>
+					<div class="info">
+						<div class="d-block" id="userFullName" style="color: white;"></div>
+					</div>
+				</div>
+
+				<!-- SidebarSearch Form -->
+				<div class="form-inline">
+					<div class="input-group" data-widget="sidebar-search">
+						<input class="form-control form-control-sidebar" type="search"
+							placeholder="Search" aria-label="Search">
+						<div class="input-group-append">
+							<button class="btn btn-sidebar">
+								<i class="fas fa-search fa-fw"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+				<nav class="mt-2">
+					<ul class="nav nav-pills nav-sidebar flex-column"
+						data-widget="treeview" role="menu" data-accordion="false">
+						<li class="nav-header" style="font-weight: bold;" th:if="${role}">EXAMINATION</li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/Examination}"> <i class="nav-icon fas fa-list"></i>
+								List examinations
+						</a></li>
+						<li class="nav-header" style="font-weight: bold;" th:if="${role}">TEST</li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/test}">
+								<i class="nav-icon fas fa-list"></i> List tests
+						</a></li>
+					</ul>
+				</nav>
+			</div>
+		</aside>
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<div class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1 class="m-0">Dashboard</h1>
+						</div>
+						<!-- /.col -->
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a th:href="@{/}"><i>Home</i></a></li>
+							</ol>
+						</div>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</div>
+				<!-- /.container-fluid -->
+			</div>
+			<!-- /.content-header -->
+			<!-- Main content -->
+			<section class="content">
+				<div class="row">
+					<div class="col-sm-4">
+						ADD DOCTOR
+						<form id="addDoctorForm">
+							<div class="form-group">
+								<label for="doctorName">DOCTOR NAME:</label> <input type="text"
+									class="form-control" id="doctorName" placeholder="Doctor name"
+									name="doctorName" required="required" style="width: 450px;">
+							</div>
+							<div class="form-group">
+								<label for="doctorGender">DOCTOR GENDER:</label> <select
+									name="gender" required="required" id="doctorGender">
+									<option>Male</option>
+									<option>Female</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="doctorDateOfBirth">DOCTOR DATE OF BIRTH:</label> <input
+									type="date" class="form-control" id="doctorDateOfBirth"
+									placeholder="Doctor date of birth" name="dateOfBirth"
+									style="width: 450px;">
+							</div>
+							<div class="form-group">
+								<label for="doctorPhoneNumber">DOCTOR PHONE NUMBER:</label> <input
+									type="text" class="form-control" id="doctorPhoneNumber"
+									placeholder="Doctor phone number" name="phoneNumber"
+									required="required" style="width: 450px;">
+							</div>
+							<div class="form-group">
+								<label for="doctorIdentityCardNumber">DOCTOR IDENTITY
+									CARD NUMBER:</label> <input type="text" class="form-control"
+									id="doctorIdentityCardNumber"
+									placeholder="Doctor identity card number"
+									name="identityCardNumber" required="required"
+									style="width: 450px;">
+							</div>
+							<div class="form-group">
+								<label for="doctorAddress">DOCTOR ADDRESS:</label> <input
+									type="text" class="form-control" id="doctorAddress"
+									placeholder="Doctor phone number" name="address"
+									required="required" style="width: 450px;">
+							</div>
+							<div class="form-group">
+								<label for="doctorSalary">DOCTOR SALARY:</label> <input
+									type="number" class="form-control" id="doctorSalary"
+									placeholder="Doctor salary" name="salary" required="required"
+									style="width: 450px;">
+							</div>
+							<div class="form-group">
+								<label for="doctorDepartment">DOCTOR DEPARTMENT:</label> <select
+									name="department" required="required" id="doctorDepartment">
+
+								</select>
+							</div>
+							<button type="submit" id="add">Add doctor</button>
+						</form>
+					</div>
+					<div class="col-sm-4">
+						EDIT DOCTOR
+						<form id="editDoctorForm">
+							<div class="form-group" hidden="hidden">
+								<label for="editDoctorID" hidden="hidden">DOCTOR ID:</label> <input
+									type="text" class="form-control" id="editDoctorID"
+									placeholder="Doctor name" name="editDoctorID"
+									required="required" style="width: 450px;" hidden="hidden">
+							</div>
+							<div class="form-group">
+								<label for="editDoctorName">DOCTOR NAME:</label> <input
+									type="text" class="form-control" id="editDoctorName"
+									placeholder="Doctor name" name="editDoctorName"
+									required="required" style="width: 450px;">
+							</div>
+							<div class="form-group">
+								<label for="editDoctorGender">DOCTOR GENDER:</label> <select
+									name="editDoctorGender" required="required"
+									id="editDoctorGender">
+									<option>Male</option>
+									<option>Female</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="editDoctorDateOfBirth">DOCTOR DATE OF BIRTH:</label>
+								<input type="date" class="form-control"
+									id="editDoctorDateOfBirth" placeholder="Doctor date of birth"
+									name="editDoctorDateOfBirth" style="width: 450px;">
+							</div>
+							<div class="form-group">
+								<label for="editDoctorPhoneNumber">DOCTOR PHONE NUMBER:</label>
+								<input type="text" class="form-control"
+									id="editDoctorPhoneNumber" placeholder="Doctor phone number"
+									name="editDoctorPhoneNumber" required="required"
+									style="width: 450px;">
+							</div>
+							<div class="form-group">
+								<label for="editDoctorIdentityCardNumber">DOCTOR
+									IDENTITY CARD NUMBER:</label> <input type="text" class="form-control"
+									id="editDoctorIdentityCardNumber"
+									placeholder="Doctor identity card number"
+									name="editDoctorIdentityCardNumber" required="required"
+									style="width: 450px;">
+							</div>
+							<div class="form-group">
+								<label for="editDoctorAddress">DOCTOR ADDRESS:</label> <input
+									type="text" class="form-control" id="editDoctorAddress"
+									placeholder="Doctor phone number" name="editDoctorAddress"
+									required="required" style="width: 450px;">
+							</div>
+							<div class="form-group">
+								<label for="editDoctorSalary">DOCTOR SALARY:</label> <input
+									type="number" class="form-control" id="editDoctorSalary"
+									placeholder="Doctor salary" name="editDoctorSalary"
+									required="required" style="width: 450px;">
+							</div>
+							<div class="form-group">
+								<label for="editDoctorDepartment">DOCTOR DEPARTMENT:</label> 
+									<select
+										name="editDoctorDepartment" required="required"
+										id="editDoctorDepartment">
+									</select>
+							</div>
+							<button type="submit" id="edit">Edit doctor</button>
+						</form>
+					</div>
+					<div class="col-sm-4">
+						DELETE DOCTOR
+						<form id="deleteDoctorForm">
+							<div class="form-group" hidden="hidden">
+								<label for="deleteDoctorID" hidden="hidden">DOCTOR ID:</label> <input
+									type="text" class="form-control" id="deleteDoctorID"
+									placeholder="Doctor name" name="deleteDoctorID"
+									required="required" style="width: 450px;" hidden="hidden">
+							</div>
+							<div class="form-group">
+								<label for="deleteDoctorName">DOCTOR NAME:</label> <input
+									type="text" class="form-control" id="deleteDoctorName"
+									placeholder="Doctor name" name="deleteDoctorName"
+									required="required" style="width: 450px;">
+							</div>
+							<div class="form-group">
+								<label for="deleteDoctorGender">DOCTOR GENDER:</label> <select
+									name="deleteDoctorGender" required="required"
+									id="deleteDoctorGender">
+									<option>Male</option>
+									<option>Female</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="deleteDoctorDateOfBirth">DOCTOR DATE OF BIRTH:</label>
+								<input type="date" class="form-control"
+									id="deleteDoctorDateOfBirth" placeholder="Doctor date of birth"
+									name="deleteDoctorDateOfBirth" style="width: 450px;">
+							</div>
+							<div class="form-group">
+								<label for="deleteDoctorPhoneNumber">DOCTOR PHONE NUMBER:</label>
+								<input type="text" class="form-control"
+									id="deleteDoctorPhoneNumber" placeholder="Doctor phone number"
+									name="deleteDoctorPhoneNumber" required="required"
+									style="width: 450px;">
+							</div>
+							<div class="form-group">
+								<label for="deleteDoctorIdentityCardNumber">DOCTOR
+									IDENTITY CARD NUMBER:</label> <input type="text" class="form-control"
+									id="deleteDoctorIdentityCardNumber"
+									placeholder="Doctor identity card number"
+									name="deleteDoctorIdentityCardNumber" required="required"
+									style="width: 450px;">
+							</div>
+							<div class="form-group">
+								<label for="deleteDoctorAddress">DOCTOR ADDRESS:</label> <input
+									type="text" class="form-control" id="deleteDoctorAddress"
+									placeholder="Doctor phone number" name="deleteDoctorAddress"
+									required="required" style="width: 450px;">
+							</div>
+							<div class="form-group">
+								<label for="deleteDoctorSalary">DOCTOR SALARY:</label> <input
+									type="number" class="form-control" id="deleteDoctorSalary"
+									placeholder="Doctor salary" name="deleteDoctorSalary"
+									required="required" style="width: 450px;">
+							</div>
+							<button type="submit" id="delete">Delete doctor</button>
+						</form>
+					</div>
+				</div>
+				<div class="col-12">
+					<hr>
+					<input type="text" id="searchDoctors"
+						placeholder="Search name or phone number" style="width: 300px;">
+					<table class="table" id="doctorListTable">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">NAME</th>
+								<th scope="col">GENDER</th>
+								<th scope="col">DATE_OF_BIRTH</th>
+								<th scope="col">PHONE NUMBER</th>
+								<th scope="col">IDENTITY CARD NUMBER</th>
+								<th scope="col">ADDRESS</th>
+								<th scope="col">SALARY</th>
+								<th scope="col">DEPARTMENT</th>
+							</tr>
+						</thead>
+						<tbody>
+
+						</tbody>
+					</table>
+					<hr>
+				</div>
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<footer class="main-footer">
+			<strong>Copyright &copy; 2014-2021 <a
+				href="https://adminlte.io">AdminLTE.io</a>.
+			</strong> All rights reserved.
+			<div class="float-right d-none d-sm-inline-block">
+				<b>Version</b> 3.1.0
+			</div>
+		</footer>
+
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark">
+			<!-- Control sidebar content goes here -->
+		</aside>
+		<!-- /.control-sidebar -->
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- jQuery -->
+	<script type="text/javascript">
+		var contextPath = "[[@{/}]]";
+		var csrfHeader = "[[${_csrf.headerName}]]";
+		var csrfToken = "[[${_csrf.token}]]";
+	</script>
+	<script th:src="@{/jsFile/doctorAction.js}"></script>
+</body>
+</html>
