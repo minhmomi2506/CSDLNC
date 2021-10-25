@@ -1,6 +1,7 @@
 package com.example.QuanLyPhongKham.service;
 
 import java.sql.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -41,6 +42,11 @@ public class MedicalNoteServiceImp implements MedicalNoteService {
 		medicalNote.setPatient(patient);
 		medicalNote.setExamination(examination);
 		return medicalNoteRepo.save(medicalNote);
+	}
+	
+	@Override
+	public List<MedicalNote> getAll() {
+		return medicalNoteRepo.findAll();
 	}
 
 }

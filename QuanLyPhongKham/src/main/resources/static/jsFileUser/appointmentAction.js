@@ -17,7 +17,7 @@ function getListAppointments(){
 		url: contextPath + "listAppointments"
 	}).done(function(result) {
 		$.each(result, function(index, appointment) {
-			var row = "<tr><td hidden = 'hidden'>" + appointment.id + "</td><td style='color: black'>" + appointment.fullName + "</td><td style='color: black'>" + appointment.gender + "</td><td style='color: black'>" + appointment.dateOfBirth + "</td><td style='color: black'>" + appointment.phoneNumber + "</td><td style='color: black'>" + appointment.address + "</td><td style='color: black'>" + appointment.appointmentDate + "</td></tr>";
+			var row = "<tr><td hidden = 'hidden'>" + appointment.id + "</td><td>" + appointment.fullName + "</td><td>" + appointment.gender + "</td><td>" + appointment.dateOfBirth + "</td><td>" + appointment.phoneNumber + "</td><td>" + appointment.address + "</td><td>" + appointment.appointmentDate + "</td></tr>";
 			$("#appointmentListTable tbody").append(row);
 		});
 	});

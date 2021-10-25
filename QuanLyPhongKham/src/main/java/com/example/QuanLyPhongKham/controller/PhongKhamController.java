@@ -103,6 +103,12 @@ public class PhongKhamController {
 		return "admin/department/departmentList";
 	}
 	
+	/*LIST MEDICINES*/
+	@GetMapping("/medicine")
+	public String medicine() {
+		return "admin/medicine/medicineList";
+	}
+	
 	
 	/*USER CONTROLLER*/
 	/*LIST APPOINTMENT*/

@@ -39,6 +39,8 @@ $(document).ready(function() {
 	});
 
 	getListDoctors();
+	
+	getListMedicalNotes();
 
 	getListExaminations();
 });
@@ -70,8 +72,22 @@ function addMedicalNote(link) {
 		}
 	}).done(function() {
 		alert("Create medical note successfully!");
+		getListMedicalNotes();
 	}).fail(function() {
 		alert("aaa");
+	});
+}
+
+function getListMedicalNotes(){
+	$("#medicalNoteListTable tbody").empty();
+	$.ajax({
+		type: "GET",
+		url: contextPath + "listMedicalNotes"
+	}).done(function(result) {
+		$.each(result, function(index, medicalNote) {
+			var row = "<tr><td hidden = 'hidden'>" + medicalNote.id + "</td><td>" + medicalNote.patient.fullName + "</td><td>" + medicalNote.patient.phoneNumber + "</td><td>" + medicalNote.doctor.doctorName + "</td><td>" + medicalNote.doctor.phoneNumber + "</td><td>" + medicalNote.symptom + "</td><td>" + medicalNote.conclusion + "</td><td>" + medicalNote.totalMoney + "</td><td>" + medicalNote.date + "</td></tr>";
+			$("#medicalNoteListTable tbody").append(row);
+		});
 	});
 }
 

@@ -9,4 +9,10 @@ import com.example.QuanLyPhongKham.entity.Medicine;
 @Service
 public interface MedicineService {
 	List<Medicine> getAll();
+	
+	Medicine addMedicine(Medicine medicine);
+	
+	Medicine editMedicine(Long id, Medicine medicine);
+	
+	void deleteById(Long id);
 }
