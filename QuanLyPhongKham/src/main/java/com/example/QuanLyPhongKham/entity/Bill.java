@@ -11,37 +11,43 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import lombok.Data;
 
 @Entity
 @Table
 @Data
-public class MedicalNote {
+public class Bill {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name = "doctor_id")
-	private Doctor doctor;
+	@JoinColumn(name = "medicine_id")
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	private Medicine medicine;
 	
 	@ManyToOne
-	@JoinColumn(name = "patient_id")
-	private Patient patient;
-	
-	@ManyToOne
-	@JoinColumn(name = "examination_id")
-	private Examination examination;
+	@JoinColumn(name = "user_id")
+	private User user;
 	
 	@Column
-	private String symptom;
+	private int quantity;
 	
 	@Column
-	private Date date;
+	private String phoneNumber;
 	
 	@Column
-	private String conclusion;
+	private int medicinePrice;
 	
 	@Column
-	private int totalMoney;
+	private int toTal;
+	
+	@Column
+	private Date buyDate;
+	
+	@Column
+	private String address;
 }

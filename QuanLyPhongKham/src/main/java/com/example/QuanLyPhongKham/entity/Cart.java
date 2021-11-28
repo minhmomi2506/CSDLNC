@@ -1,7 +1,5 @@
 package com.example.QuanLyPhongKham.entity;
 
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,39 +7,34 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import lombok.Data;
 
 @Entity
 @Table
 @Data
-public class MedicalNote {
+public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name = "doctor_id")
-	private Doctor doctor;
+	@JoinColumn(name = "medicine_id")
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	private Medicine medicine;
 	
-	@ManyToOne
-	@JoinColumn(name = "patient_id")
-	private Patient patient;
-	
-	@ManyToOne
-	@JoinColumn(name = "examination_id")
-	private Examination examination;
+	@OneToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 	
 	@Column
-	private String symptom;
+	private int quantity;
 	
 	@Column
-	private Date date;
-	
-	@Column
-	private String conclusion;
-	
-	@Column
-	private int totalMoney;
+	private int total;
 }

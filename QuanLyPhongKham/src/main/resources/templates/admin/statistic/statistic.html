@@ -241,72 +241,97 @@
 			<!-- Main content -->
 			<section class="content">
 				<div class="row">
-					<div class="col-sm-4">
-						ADD DEPARTMENT
-						<form id="addDepartmentForm">
-							<div class="form-group">
-								<label for="departmentName">DEPARTMENT NAME:</label> <input
-									type="text" class="form-control" id="departmentName"
-									placeholder="Department name" name="departmentName"
-									required="required" style="width: 350px;">
-							</div>
-							<button type="submit" id="add">Add department</button>
-						</form>
+					<div class="col-sm-6">
+						<div>Select month:</div>
+						<select name="month" id="month" class="col-sm-6">
+							<option th:value="1">1</option>
+							<option th:value="2">2</option>
+							<option th:value="3">3</option>
+							<option th:value="4">4</option>
+							<option th:value="5">5</option>
+							<option th:value="6">6</option>
+							<option th:value="7">7</option>
+							<option th:value="8">8</option>
+							<option th:value="9">9</option>
+							<option th:value="10">10</option>
+							<option th:value="11">11</option>
+							<option th:value="12">12</option>
+						</select> <br />
+						<div>Select year:</div>
+						<select name="year" id="year" class="col-sm-6">
+							<option th:value="2020">2020</option>
+							<option th:value="2021">2021</option>
+						</select> <br /> <br />
+						<button id="statistic" class="col-sm-6">Watch medicine
+							statistic</button>
+						<br /> <br />
 					</div>
-					<div class="col-sm-4">
-						EDIT DEPARTMENT
-						<form id="editDepartmentForm">
-							<div class="form-group" hidden="hidden">
-								<label for="editDepartmentID" hidden="hidden">DEPARTMENT
-									ID:</label> <input type="text" class="form-control"
-									id="editDepartmentID" placeholder="Department id"
-									name="editDepartmentID" required="required"
-									style="width: 350px;" hidden="hidden">
-							</div>
-							<div class="form-group">
-								<label for="editDepartmentName">DEPARTMENT NAME:</label> <input
-									type="text" class="form-control" id="editDepartmentName"
-									placeholder="Department name" name="editDepartmentName"
-									required="required" style="width: 350px;">
-							</div>
-							<button type="submit" id="edit">Edit department</button>
-						</form>
+					<div class="col-sm-6">
+						<div>Select month:</div>
+						<select name="month" id="medicalNoteMonth" class="col-sm-6">
+							<option th:value="1">1</option>
+							<option th:value="2">2</option>
+							<option th:value="3">3</option>
+							<option th:value="4">4</option>
+							<option th:value="5">5</option>
+							<option th:value="6">6</option>
+							<option th:value="7">7</option>
+							<option th:value="8">8</option>
+							<option th:value="9">9</option>
+							<option th:value="10">10</option>
+							<option th:value="11">11</option>
+							<option th:value="12">12</option>
+						</select> <br />
+						<div>Select year:</div>
+						<select name="year" id="medicalNoteYear" class="col-sm-6">
+							<option th:value="2020">2020</option>
+							<option th:value="2021">2021</option>
+						</select> <br /> <br />
+						<button id="medicalNoteStatistic" class="col-sm-6">Watch
+							medical note statistic</button>
+						<br /> <br />
 					</div>
-					<div class="col-sm-4">
-						DELETE DEPARTMENT
-						<form id="deleteDepartmentForm">
-							<div class="form-group" hidden="hidden">
-								<label for="deleteDepartmentID" hidden="hidden">DEPARTMENT
-									ID:</label> <input type="text" class="form-control"
-									id="deleteDepartmentID" placeholder="Department id"
-									name="deleteDepartmentID" required="required"
-									style="width: 350px;" hidden="hidden">
-							</div>
-							<div class="form-group">
-								<label for="deleteDepartmentName">DEPARTMENT NAME:</label> <input
-									type="text" class="form-control" id="deleteDepartmentName"
-									placeholder="Department name" name="deleteDepartmentName"
-									required="required" style="width: 350px;">
-							</div>
-							<button type="submit" id="delete">Delete department</button>
-						</form>
+					<div
+						style="text-align: center; font-weight: bold; font-size: 20px;"
+						id="billsByMonthAndYearTitle"></div>
+					<div class="col-sm-12" style="text-align: center;">
+						<table style="text-align: center;" class="table">
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col">MEDICINE NAME</th>
+									<th scope="col">QUANTITY</th>
+									<th scope="col">PRICE</th>
+									<th scope="col">TOTAL</th>
+									<th scope="col">BUY DATE</th>
+									<th scope="col">USER PHONENUMBER</th>
+									<th scope="col">USER USERNAME</th>
+									<th scope="col">ADDRESS</th>
+								</tr>
+							</thead>
+							<tbody id="medicineTbody">
+							</tbody>
+						</table>
 					</div>
-				</div>
-				<div class="col-12">
-					<hr>
-					<input type="text" id="searchDepartments"
-						placeholder="Search department" style="width: 300px;">
-					<table class="table" id="departmentListTable">
-						<thead class="thead-dark">
-							<tr>
-								<th scope="col">NAME</th>
-							</tr>
-						</thead>
-						<tbody>
-
-						</tbody>
-					</table>
-					<hr>
+					<div class="col-sm-12" style="text-align: center;">
+						<table style="text-align: center;" class="table">
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col">PATIENT NAME</th>
+									<th scope="col">PATIENT PHONE NUMBER</th>
+									<th scope="col">SYMPTOM</th>
+									<th scope="col">CONCLUSION</th>
+									<th scope="col">DATE</th>
+									<th scope="col">EXAMINATION NAME</th>
+									<th scope="col">TOTAL</th>
+								</tr>
+							</thead>
+							<tbody id="medicalNoteTbody">
+							</tbody>
+						</table>
+					</div>
+					<div
+						style="color: black; font-size: 30px; font-weight: bold; text-align: right;"
+						id="medicalNoteStatisticResult" class="col-sm-12"></div>
 				</div>
 			</section>
 			<!-- /.content -->
@@ -335,6 +360,6 @@
 		var csrfHeader = "[[${_csrf.headerName}]]";
 		var csrfToken = "[[${_csrf.token}]]";
 	</script>
-	<script th:src="@{/jsFile/departmentAction.js}"></script>
+	<script th:src="@{/jsFile/statisticAction.js}"></script>
 </body>
 </html>

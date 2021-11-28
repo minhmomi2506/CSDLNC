@@ -179,14 +179,37 @@
 				<nav class="mt-2">
 					<ul class="nav nav-pills nav-sidebar flex-column"
 						data-widget="treeview" role="menu" data-accordion="false">
-						<li class="nav-header" style="font-weight: bold;" th:if="${role}">EXAMINATION</li>
-						<li class="nav-item"><a class="nav-link"
-							th:href="@{/Examination}"> <i class="nav-icon fas fa-list"></i>
-								List examinations
+						<li class="nav-item"><a class="nav-link" th:href="@{/doctor}">
+								<i class="nav-icon fas fa-user-nurse"></i>Doctors
 						</a></li>
-						<li class="nav-header" style="font-weight: bold;" th:if="${role}">TEST</li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/patient}"> <i
+								class="nav-icon fas fa-user-injured"></i>Patients
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/examination}"> <i class="nav-icon fas fa-list"></i>Examinations
+						</a></li>
 						<li class="nav-item"><a class="nav-link" th:href="@{/test}">
-								<i class="nav-icon fas fa-list"></i> List tests
+								<i class="nav-icon fas fa-diagnoses"></i> Tests
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/medicine}"> <i class="nav-icon fas fa-capsules"></i>
+								Medicines
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/medicalNote}"> <i class="nav-icon fas fa-list"></i>
+								Medical notes
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/appointment}"> <i
+								class="nav-icon fas fa-calendar-check"></i> Appointments
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/statistic}"> <i
+								class="nav-icon fas fa-money-check-alt"></i> Statistic
+						</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/logout}">
+								<i class="nav-icon fas fa-sign-out"></i> Logout
 						</a></li>
 					</ul>
 				</nav>
@@ -224,7 +247,7 @@
 							<div class="form-group">
 								<label for="doctorName">DOCTOR NAME:</label> <input type="text"
 									class="form-control" id="doctorName" placeholder="Doctor name"
-									name="doctorName" required="required" style="width: 450px;">
+									name="doctorName" required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="doctorGender">DOCTOR GENDER:</label> <select
@@ -237,13 +260,13 @@
 								<label for="doctorDateOfBirth">DOCTOR DATE OF BIRTH:</label> <input
 									type="date" class="form-control" id="doctorDateOfBirth"
 									placeholder="Doctor date of birth" name="dateOfBirth"
-									style="width: 450px;">
+									style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="doctorPhoneNumber">DOCTOR PHONE NUMBER:</label> <input
 									type="text" class="form-control" id="doctorPhoneNumber"
 									placeholder="Doctor phone number" name="phoneNumber"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="doctorIdentityCardNumber">DOCTOR IDENTITY
@@ -251,19 +274,19 @@
 									id="doctorIdentityCardNumber"
 									placeholder="Doctor identity card number"
 									name="identityCardNumber" required="required"
-									style="width: 450px;">
+									style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="doctorAddress">DOCTOR ADDRESS:</label> <input
 									type="text" class="form-control" id="doctorAddress"
 									placeholder="Doctor phone number" name="address"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="doctorSalary">DOCTOR SALARY:</label> <input
 									type="number" class="form-control" id="doctorSalary"
 									placeholder="Doctor salary" name="salary" required="required"
-									style="width: 450px;">
+									style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="doctorDepartment">DOCTOR DEPARTMENT:</label> <select
@@ -281,13 +304,13 @@
 								<label for="editDoctorID" hidden="hidden">DOCTOR ID:</label> <input
 									type="text" class="form-control" id="editDoctorID"
 									placeholder="Doctor name" name="editDoctorID"
-									required="required" style="width: 450px;" hidden="hidden">
+									required="required" style="width: 350px;" hidden="hidden">
 							</div>
 							<div class="form-group">
 								<label for="editDoctorName">DOCTOR NAME:</label> <input
 									type="text" class="form-control" id="editDoctorName"
 									placeholder="Doctor name" name="editDoctorName"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="editDoctorGender">DOCTOR GENDER:</label> <select
@@ -301,14 +324,14 @@
 								<label for="editDoctorDateOfBirth">DOCTOR DATE OF BIRTH:</label>
 								<input type="date" class="form-control"
 									id="editDoctorDateOfBirth" placeholder="Doctor date of birth"
-									name="editDoctorDateOfBirth" style="width: 450px;">
+									name="editDoctorDateOfBirth" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="editDoctorPhoneNumber">DOCTOR PHONE NUMBER:</label>
 								<input type="text" class="form-control"
 									id="editDoctorPhoneNumber" placeholder="Doctor phone number"
 									name="editDoctorPhoneNumber" required="required"
-									style="width: 450px;">
+									style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="editDoctorIdentityCardNumber">DOCTOR
@@ -316,26 +339,25 @@
 									id="editDoctorIdentityCardNumber"
 									placeholder="Doctor identity card number"
 									name="editDoctorIdentityCardNumber" required="required"
-									style="width: 450px;">
+									style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="editDoctorAddress">DOCTOR ADDRESS:</label> <input
 									type="text" class="form-control" id="editDoctorAddress"
 									placeholder="Doctor phone number" name="editDoctorAddress"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="editDoctorSalary">DOCTOR SALARY:</label> <input
 									type="number" class="form-control" id="editDoctorSalary"
 									placeholder="Doctor salary" name="editDoctorSalary"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
-								<label for="editDoctorDepartment">DOCTOR DEPARTMENT:</label> 
-									<select
-										name="editDoctorDepartment" required="required"
-										id="editDoctorDepartment">
-									</select>
+								<label for="editDoctorDepartment">DOCTOR DEPARTMENT:</label> <select
+									name="editDoctorDepartment" required="required"
+									id="editDoctorDepartment">
+								</select>
 							</div>
 							<button type="submit" id="edit">Edit doctor</button>
 						</form>
@@ -347,13 +369,13 @@
 								<label for="deleteDoctorID" hidden="hidden">DOCTOR ID:</label> <input
 									type="text" class="form-control" id="deleteDoctorID"
 									placeholder="Doctor name" name="deleteDoctorID"
-									required="required" style="width: 450px;" hidden="hidden">
+									required="required" style="width: 350px;" hidden="hidden">
 							</div>
 							<div class="form-group">
 								<label for="deleteDoctorName">DOCTOR NAME:</label> <input
 									type="text" class="form-control" id="deleteDoctorName"
 									placeholder="Doctor name" name="deleteDoctorName"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="deleteDoctorGender">DOCTOR GENDER:</label> <select
@@ -364,17 +386,17 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<label for="deleteDoctorDateOfBirth">DOCTOR DATE OF BIRTH:</label>
-								<input type="date" class="form-control"
+								<label for="deleteDoctorDateOfBirth">DOCTOR DATE OF
+									BIRTH:</label> <input type="date" class="form-control"
 									id="deleteDoctorDateOfBirth" placeholder="Doctor date of birth"
-									name="deleteDoctorDateOfBirth" style="width: 450px;">
+									name="deleteDoctorDateOfBirth" style="width: 350px;">
 							</div>
 							<div class="form-group">
-								<label for="deleteDoctorPhoneNumber">DOCTOR PHONE NUMBER:</label>
-								<input type="text" class="form-control"
+								<label for="deleteDoctorPhoneNumber">DOCTOR PHONE
+									NUMBER:</label> <input type="text" class="form-control"
 									id="deleteDoctorPhoneNumber" placeholder="Doctor phone number"
 									name="deleteDoctorPhoneNumber" required="required"
-									style="width: 450px;">
+									style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="deleteDoctorIdentityCardNumber">DOCTOR
@@ -382,19 +404,19 @@
 									id="deleteDoctorIdentityCardNumber"
 									placeholder="Doctor identity card number"
 									name="deleteDoctorIdentityCardNumber" required="required"
-									style="width: 450px;">
+									style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="deleteDoctorAddress">DOCTOR ADDRESS:</label> <input
 									type="text" class="form-control" id="deleteDoctorAddress"
 									placeholder="Doctor phone number" name="deleteDoctorAddress"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="deleteDoctorSalary">DOCTOR SALARY:</label> <input
 									type="number" class="form-control" id="deleteDoctorSalary"
 									placeholder="Doctor salary" name="deleteDoctorSalary"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<button type="submit" id="delete">Delete doctor</button>
 						</form>

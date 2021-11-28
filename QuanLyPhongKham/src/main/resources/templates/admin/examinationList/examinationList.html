@@ -179,15 +179,37 @@
 				<nav class="mt-2">
 					<ul class="nav nav-pills nav-sidebar flex-column"
 						data-widget="treeview" role="menu" data-accordion="false">
-						<li class="nav-header" style="font-weight: bold;" th:if="${role}">EXAMINATION</li>
-						<li class="nav-item"><a class="nav-link"
-							th:href="@{/Examination}"> <i
-								class="nav-icon fas fa-list"></i> List examinations
+						<li class="nav-item"><a class="nav-link" th:href="@{/doctor}">
+								<i class="nav-icon fas fa-user-nurse"></i>Doctors
 						</a></li>
-						<li class="nav-header" style="font-weight: bold;" th:if="${role}">TEST</li>
 						<li class="nav-item"><a class="nav-link"
-							th:href="@{/test}"> <i
-								class="nav-icon fas fa-list"></i> List tests
+							th:href="@{/patient}"> <i
+								class="nav-icon fas fa-user-injured"></i>Patients
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/examination}"> <i class="nav-icon fas fa-list"></i>Examinations
+						</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/test}">
+								<i class="nav-icon fas fa-diagnoses"></i> Tests
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/medicine}"> <i class="nav-icon fas fa-capsules"></i>
+								Medicines
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/medicalNote}"> <i class="nav-icon fas fa-list"></i>
+								Medical notes
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/appointment}"> <i
+								class="nav-icon fas fa-calendar-check"></i> Appointments
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/statistic}"> <i
+								class="nav-icon fas fa-money-check-alt"></i> Statistic
+						</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/logout}">
+								<i class="nav-icon fas fa-sign-out"></i> Logout
 						</a></li>
 					</ul>
 				</nav>
@@ -226,20 +248,20 @@
 								<label for="examinationName">EXAMINATION NAME:</label> <input
 									type="text" class="form-control" id="examinationName"
 									placeholder="Examination name" name="examinationName"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="examinationPrice">EXAMINATION PRICE:</label> <input
 									type="number" class="form-control" id="examinationPrice"
 									placeholder="Examination price" name="examinationPrice"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="examinationDescription">EXAMINATION
 									DESCRIPTION:</label> <input type="text" class="form-control"
 									id="examinationDescription"
 									placeholder="Examination Description"
-									name="examinationDescription" style="width: 450px;">
+									name="examinationDescription" style="width: 350px;">
 							</div>
 							<button type="submit" id="add">Add examination</button>
 						</form>
@@ -250,26 +272,26 @@
 								<label for="editExaminationID" hidden="hidden">EXAMINATION ID:</label> <input
 									type="text" class="form-control" id="editExaminationID"
 									placeholder="Examination id" name="editExaminationID"
-									required="required" style="width: 450px;" hidden="hidden">
+									required="required" style="width: 350px;" hidden="hidden">
 							</div>
 							<div class="form-group">
 								<label for="editExaminationName">EXAMINATION NAME:</label> <input
 									type="text" class="form-control" id="editExaminationName"
 									placeholder="Examination name" name="editExaminationName"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="editExaminationPrice">EXAMINATION PRICE:</label> <input
 									type="number" class="form-control" id="editExaminationPrice"
 									placeholder="Examination price" name="editExaminationPrice"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="editExaminationDescription">EXAMINATION
 									DESCRIPTION:</label> <input type="text" class="form-control"
 									id="editExaminationDescription"
 									placeholder="Examination Description"
-									name="editExaminationDescription" style="width: 450px;">
+									name="editExaminationDescription" style="width: 350px;">
 							</div>
 							<button type="submit" id="edit">Edit examination</button>
 						</form>
@@ -280,26 +302,26 @@
 								<label for="deleteExaminationID" hidden="hidden">EXAMINATION ID:</label> <input
 									type="text" class="form-control" id="deleteExaminationID"
 									placeholder="Examination id" name="deleteExaminationID"
-									required="required" style="width: 450px;" hidden="hidden">
+									required="required" style="width: 350px;" hidden="hidden">
 							</div>
 							<div class="form-group">
 								<label for="deleteExaminationName">EXAMINATION NAME:</label> <input
 									type="text" class="form-control" id="deleteExaminationName"
 									placeholder="Examination name" name="deleteExaminationName"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="deleteExaminationPrice">EXAMINATION PRICE:</label> <input
 									type="number" class="form-control" id="deleteExaminationPrice"
 									placeholder="Examination price" name="deleteExaminationPrice"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="deleteExaminationDescription">EXAMINATION
 									DESCRIPTION:</label> <input type="text" class="form-control"
 									id="deleteExaminationDescription"
 									placeholder="Examination Description"
-									name="deleteExaminationDescription" style="width: 450px;">
+									name="deleteExaminationDescription" style="width: 350px;">
 							</div>
 							<button type="submit" id="delete">Delete examination</button>
 						</form>

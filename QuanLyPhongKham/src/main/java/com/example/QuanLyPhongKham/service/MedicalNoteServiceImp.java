@@ -1,6 +1,7 @@
 package com.example.QuanLyPhongKham.service;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,32 @@ public class MedicalNoteServiceImp implements MedicalNoteService {
 	@Override
 	public List<MedicalNote> getAll() {
 		return medicalNoteRepo.findAll();
+	}
+	
+	@SuppressWarnings("deprecation")
+	@Override
+	public int totalMoney(int month, int year) {
+		List<MedicalNote> medicalNotes = medicalNoteRepo.findAll();
+		int totalMoney = 0;
+		for(MedicalNote medicalNote : medicalNotes) {
+			if(medicalNote.getDate().getMonth() - month + 1 == 0 && medicalNote.getDate().getYear() - year + 1900 == 0) {
+				totalMoney = totalMoney + medicalNote.getTotalMoney();
+			}
+		}
+		return totalMoney;
+	}
+	
+	@SuppressWarnings("deprecation")
+	@Override
+	public List<MedicalNote> getAllByMonthAndYear(int month, int year) {
+		List<MedicalNote> medicalNotes = medicalNoteRepo.findAll();
+		List<MedicalNote> medicalNotesStatistic = new ArrayList<MedicalNote>();
+		for(MedicalNote medicalNote : medicalNotes) {
+			if(medicalNote.getDate().getMonth() - month + 1 == 0 && medicalNote.getDate().getYear() - year + 1900 == 0) {
+				medicalNotesStatistic.add(medicalNote);
+			}
+		}
+		return medicalNotesStatistic;
 	}
 
 }

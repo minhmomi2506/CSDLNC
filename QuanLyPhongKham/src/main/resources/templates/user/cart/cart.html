@@ -212,18 +212,20 @@
 		</section>
 
 		<section class="content">
+			<hr>
 			<div class="row">
+				<input id="deleteMedicineID" type="text" name="deleteMedicineID"
+					hidden="hidden">
 				<div class="col-12">
 					<hr>
-					<table class="table" id="appointmentListTable">
+					<table class="table" id="cartListTable">
 						<thead class="thead-dark">
 							<tr>
-								<th scope="col">FULL NAME</th>
-								<th scope="col">GENDER</th>
-								<th scope="col">DATE_OF_BIRTH</th>
-								<th scope="col">PHONE NUMBER</th>
-								<th scope="col">ADDRESS</th>
-								<th scope="col">APPOINTMENT DATE</th>
+								<th scope="col">MEDICINE NAME</th>
+								<th scope="col">PRICE</th>
+								<th scope="col">QUANTITY</th>
+								<th scope="col">TOTAL MONEY</th>
+								<th scope="col">DELETE FROM CART</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -231,6 +233,13 @@
 						</tbody>
 					</table>
 					<hr>
+					<div id="totalMoney" style="font-size: 30px; text-align: right;"></div>
+					<form th:action="@{/checkOut}" method="post">
+						<input type="text" placeholder="Nhập địa chỉ nhận hàng"
+							required="required" name="address"> <input type="text"
+							placeholder="Nhập SĐT" name="phoneNumber" required="required">
+						<button type="submit">Mua hàng</button>
+					</form>
 				</div>
 			</div>
 		</section>
@@ -1053,7 +1062,7 @@
 		var csrfHeader = "[[${_csrf.headerName}]]";
 		var csrfToken = "[[${_csrf.token}]]";
 	</script>
-	<script th:src="@{/jsFileUser/appointmentAction.js}"></script>
+	<script th:src="@{/jsFileUser/cartAction.js}"></script>
 
 </body>
 

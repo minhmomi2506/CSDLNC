@@ -8,7 +8,11 @@ import com.example.QuanLyPhongKham.entity.MedicalNote;
 
 @Service
 public interface MedicalNoteService {
-	MedicalNote addMedicalNote(MedicalNote medicalNote,Long patientId, Long doctorId, Long examinationId);
-	
+	MedicalNote addMedicalNote(MedicalNote medicalNote, Long patientId, Long doctorId, Long examinationId);
+
 	List<MedicalNote> getAll();
+
+	int totalMoney(int month, int year);
+
+	List<MedicalNote> getAllByMonthAndYear(int month, int year);
 }

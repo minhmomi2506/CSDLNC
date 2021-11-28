@@ -240,66 +240,18 @@
 			<!-- /.content-header -->
 			<!-- Main content -->
 			<section class="content">
-				<div class="row">
-					<div class="col-sm-4">
-						ADD DEPARTMENT
-						<form id="addDepartmentForm">
-							<div class="form-group">
-								<label for="departmentName">DEPARTMENT NAME:</label> <input
-									type="text" class="form-control" id="departmentName"
-									placeholder="Department name" name="departmentName"
-									required="required" style="width: 350px;">
-							</div>
-							<button type="submit" id="add">Add department</button>
-						</form>
-					</div>
-					<div class="col-sm-4">
-						EDIT DEPARTMENT
-						<form id="editDepartmentForm">
-							<div class="form-group" hidden="hidden">
-								<label for="editDepartmentID" hidden="hidden">DEPARTMENT
-									ID:</label> <input type="text" class="form-control"
-									id="editDepartmentID" placeholder="Department id"
-									name="editDepartmentID" required="required"
-									style="width: 350px;" hidden="hidden">
-							</div>
-							<div class="form-group">
-								<label for="editDepartmentName">DEPARTMENT NAME:</label> <input
-									type="text" class="form-control" id="editDepartmentName"
-									placeholder="Department name" name="editDepartmentName"
-									required="required" style="width: 350px;">
-							</div>
-							<button type="submit" id="edit">Edit department</button>
-						</form>
-					</div>
-					<div class="col-sm-4">
-						DELETE DEPARTMENT
-						<form id="deleteDepartmentForm">
-							<div class="form-group" hidden="hidden">
-								<label for="deleteDepartmentID" hidden="hidden">DEPARTMENT
-									ID:</label> <input type="text" class="form-control"
-									id="deleteDepartmentID" placeholder="Department id"
-									name="deleteDepartmentID" required="required"
-									style="width: 350px;" hidden="hidden">
-							</div>
-							<div class="form-group">
-								<label for="deleteDepartmentName">DEPARTMENT NAME:</label> <input
-									type="text" class="form-control" id="deleteDepartmentName"
-									placeholder="Department name" name="deleteDepartmentName"
-									required="required" style="width: 350px;">
-							</div>
-							<button type="submit" id="delete">Delete department</button>
-						</form>
-					</div>
-				</div>
 				<div class="col-12">
 					<hr>
-					<input type="text" id="searchDepartments"
-						placeholder="Search department" style="width: 300px;">
-					<table class="table" id="departmentListTable">
+					<table class="table" id="billListTable"
+						style="background-color: black">
 						<thead class="thead-dark">
 							<tr>
-								<th scope="col">NAME</th>
+								<th scope="col">FULL NAME</th>
+								<th scope="col">GENDER</th>
+								<th scope="col">DATE_OF_BIRTH</th>
+								<th scope="col">PHONE NUMBER</th>
+								<th scope="col">ADDRESS</th>
+								<th scope="col">APPOINTMENT DATE</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -335,6 +287,6 @@
 		var csrfHeader = "[[${_csrf.headerName}]]";
 		var csrfToken = "[[${_csrf.token}]]";
 	</script>
-	<script th:src="@{/jsFile/departmentAction.js}"></script>
+	<script th:src="@{/jsFile/patientAppointmentAction.js}"></script>
 </body>
 </html>

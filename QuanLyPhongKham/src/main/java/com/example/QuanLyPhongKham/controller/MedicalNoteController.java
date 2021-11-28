@@ -29,4 +29,15 @@ public class MedicalNoteController {
 	public List<MedicalNote> getAll(){
 		return medicalNoteService.getAll();
 	}
+	
+	@GetMapping("/medicalNoteStatistic/{month}/{year}")
+	public int medicalNoteStatistic(@PathVariable int month, @PathVariable int year) {
+		int totalMoney = medicalNoteService.totalMoney(month, year);
+		return totalMoney;
+	}
+	
+	@GetMapping("/listMedicalNoteStatistic/{month}/{year}")
+	public List<MedicalNote> listMedicalNoteStatistic(@PathVariable int month, @PathVariable int year) {
+		return medicalNoteService.getAllByMonthAndYear(month, year);
+	}
 }

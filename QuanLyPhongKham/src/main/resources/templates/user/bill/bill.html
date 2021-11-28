@@ -212,18 +212,20 @@
 		</section>
 
 		<section class="content">
+			<hr>
 			<div class="row">
 				<div class="col-12">
 					<hr>
-					<table class="table" id="appointmentListTable">
+					<table class="table" id="billListTable">
 						<thead class="thead-dark">
 							<tr>
-								<th scope="col">FULL NAME</th>
-								<th scope="col">GENDER</th>
-								<th scope="col">DATE_OF_BIRTH</th>
+								<th scope="col">MEDICINE NAME</th>
+								<th scope="col">PRICE</th>
+								<th scope="col">QUANTITY</th>
+								<th scope="col">TOTAL</th>
 								<th scope="col">PHONE NUMBER</th>
 								<th scope="col">ADDRESS</th>
-								<th scope="col">APPOINTMENT DATE</th>
+								<th scope="col">BUY DATE</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -1053,7 +1055,7 @@
 		var csrfHeader = "[[${_csrf.headerName}]]";
 		var csrfToken = "[[${_csrf.token}]]";
 	</script>
-	<script th:src="@{/jsFileUser/appointmentAction.js}"></script>
+	<script th:src="@{/jsFileUser/billAction.js}"></script>
 
 </body>
 

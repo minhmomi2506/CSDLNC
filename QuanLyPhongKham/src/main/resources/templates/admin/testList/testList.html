@@ -179,15 +179,33 @@
 				<nav class="mt-2">
 					<ul class="nav nav-pills nav-sidebar flex-column"
 						data-widget="treeview" role="menu" data-accordion="false">
-						<li class="nav-header" style="font-weight: bold;" th:if="${role}">EXAMINATION</li>
-						<li class="nav-item"><a class="nav-link"
-							th:href="@{/Examination}"> <i
-								class="nav-icon fas fa-list"></i> List examinations
+						<li class="nav-item"><a class="nav-link" th:href="@{/doctor}">
+								<i class="nav-icon fas fa-user-nurse"></i>Doctors
 						</a></li>
-						<li class="nav-header" style="font-weight: bold;" th:if="${role}">TEST</li>
 						<li class="nav-item"><a class="nav-link"
-							th:href="@{/test}"> <i
-								class="nav-icon fas fa-list"></i> List tests
+							th:href="@{/patient}"> <i
+								class="nav-icon fas fa-user-injured"></i>Patients
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/examination}"> <i class="nav-icon fas fa-list"></i>Examinations
+						</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/test}">
+								<i class="nav-icon fas fa-diagnoses"></i> Tests
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/medicine}"> <i class="nav-icon fas fa-capsules"></i>
+								Medicines
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/medicalNote}"> <i class="nav-icon fas fa-list"></i>
+								Medical notes
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/appointment}"> <i
+								class="nav-icon fas fa-calendar-check"></i> Appointments
+						</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/logout}">
+								<i class="nav-icon fas fa-sign-out"></i> Logout
 						</a></li>
 					</ul>
 				</nav>
@@ -226,13 +244,13 @@
 								<label for="testName">TEST NAME:</label> <input
 									type="text" class="form-control" id="testName"
 									placeholder="Test name" name="testName"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="testPrice">TEST PRICE:</label> <input
 									type="number" class="form-control" id="testPrice"
 									placeholder="Test price" name="testPrice"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<button type="submit" id="add">Add test</button>
 						</form>
@@ -243,19 +261,19 @@
 								<label for="editTestID" hidden="hidden">EXAMINATION ID:</label> <input
 									type="text" class="form-control" id="editTestID"
 									placeholder="Examination id" name="editTestID"
-									required="required" style="width: 450px;" hidden="hidden">
+									required="required" style="width: 350px;" hidden="hidden">
 							</div>
 							<div class="form-group">
 								<label for="editTestName">EXAMINATION NAME:</label> <input
 									type="text" class="form-control" id="editTestName"
 									placeholder="Test name" name="editTestName"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="editTestPrice">EXAMINATION PRICE:</label> <input
 									type="number" class="form-control" id="editTestPrice"
 									placeholder="Test price" name="editTestPrice"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<button type="submit" id="edit">Edit test</button>
 						</form>
@@ -266,19 +284,19 @@
 								<label for="deleteTestID" hidden="hidden">TEST ID:</label> <input
 									type="text" class="form-control" id="deleteTestID"
 									placeholder="Test id" name="deleteTestID"
-									required="required" style="width: 450px;" hidden="hidden">
+									required="required" style="width: 350px;" hidden="hidden">
 							</div>
 							<div class="form-group">
 								<label for="deleteTestName">TEST NAME:</label> <input
 									type="text" class="form-control" id="deleteTestName"
 									placeholder="Test name" name="deleteTestName"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="deleteTestPrice">TEST PRICE:</label> <input
 									type="number" class="form-control" id="deleteTestPrice"
 									placeholder="Test price" name="deleteTestPrice"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<button type="submit" id="delete">Delete test</button>
 						</form>

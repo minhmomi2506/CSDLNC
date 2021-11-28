@@ -179,14 +179,37 @@
 				<nav class="mt-2">
 					<ul class="nav nav-pills nav-sidebar flex-column"
 						data-widget="treeview" role="menu" data-accordion="false">
-						<li class="nav-header" style="font-weight: bold;" th:if="${role}">EXAMINATION</li>
-						<li class="nav-item"><a class="nav-link"
-							th:href="@{/Examination}"> <i class="nav-icon fas fa-list"></i>
-								List examinations
+						<li class="nav-item"><a class="nav-link" th:href="@{/doctor}">
+								<i class="nav-icon fas fa-user-nurse"></i>Doctors
 						</a></li>
-						<li class="nav-header" style="font-weight: bold;" th:if="${role}">TEST</li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/patient}"> <i
+								class="nav-icon fas fa-user-injured"></i>Patients
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/examination}"> <i class="nav-icon fas fa-list"></i>Examinations
+						</a></li>
 						<li class="nav-item"><a class="nav-link" th:href="@{/test}">
-								<i class="nav-icon fas fa-list"></i> List tests
+								<i class="nav-icon fas fa-diagnoses"></i> Tests
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/medicine}"> <i class="nav-icon fas fa-capsules"></i>
+								Medicines
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/medicalNote}"> <i class="nav-icon fas fa-list"></i>
+								Medical notes
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/appointment}"> <i
+								class="nav-icon fas fa-calendar-check"></i> Appointments
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/statistic}"> <i
+								class="nav-icon fas fa-money-check-alt"></i> Statistic
+						</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/logout}">
+								<i class="nav-icon fas fa-sign-out"></i> Logout
 						</a></li>
 					</ul>
 				</nav>
@@ -225,7 +248,7 @@
 								<label for="patientName">PATIENT NAME:</label> <input
 									type="text" class="form-control" id="patientName"
 									placeholder="Patient name" name="patientName"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="patientGender">PATIENT GENDER:</label> <select
@@ -238,19 +261,19 @@
 								<label for="patientDateOfBirth">PATIENT DATE OF BIRTH:</label> <input
 									type="date" class="form-control" id="patientDateOfBirth"
 									placeholder="Patient date of birth" name="patientDateOfBirth"
-									style="width: 450px;">
+									style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="patientPhoneNumber">PATIENT PHONE NUMBER:</label> <input
 									type="text" class="form-control" id="patientPhoneNumber"
 									placeholder="Patient phone number" name="patientPhoneNumber"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="patientAddress">PATIENT ADDRESS:</label> <input
 									type="text" class="form-control" id="patientAddress"
 									placeholder="Patient phone number" name="patientAddress"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<button type="submit" id="add">Add patient</button>
 						</form>
@@ -262,13 +285,13 @@
 								<label for="editPatientID" hidden="hidden">PATIENT ID:</label> <input
 									type="text" class="form-control" id="editPatientID"
 									placeholder="Doctor name" name="editPatientID"
-									required="required" style="width: 450px;" hidden="hidden">
+									required="required" style="width: 350px;" hidden="hidden">
 							</div>
 							<div class="form-group">
 								<label for="editPatientName">PATIENT NAME:</label> <input
 									type="text" class="form-control" id="editPatientName"
 									placeholder="Patient name" name="editPatientName"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="editPatientGender">PATIENT GENDER:</label> <select
@@ -282,20 +305,20 @@
 								<label for="editPatientDateOfBirth">PATIENT DATE OF
 									BIRTH:</label> <input type="date" class="form-control"
 									id="editPatientDateOfBirth" placeholder="Patient date of birth"
-									name="editPatientDateOfBirth" style="width: 450px;">
+									name="editPatientDateOfBirth" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="editPatientPhoneNumber">PATIENT PHONE
 									NUMBER:</label> <input type="text" class="form-control"
 									id="editPatientPhoneNumber" placeholder="Patient phone number"
 									name="editPatientPhoneNumber" required="required"
-									style="width: 450px;">
+									style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="editPatientAddress">PATIENT ADDRESS:</label> <input
 									type="text" class="form-control" id="editPatientAddress"
 									placeholder="Patient phone number" name="editPatientAddress"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<button type="submit" id="edit">Edit patient</button>
 						</form>
@@ -307,13 +330,13 @@
 								<label for="deletePatientID" hidden="hidden">PATIENT ID:</label> <input
 									type="text" class="form-control" id="deletePatientID"
 									placeholder="Doctor name" name="deletePatientID"
-									required="required" style="width: 450px;" hidden="hidden">
+									required="required" style="width: 350px;" hidden="hidden">
 							</div>
 							<div class="form-group">
 								<label for="deletePatientName">PATIENT NAME:</label> <input
 									type="text" class="form-control" id="deletePatientName"
 									placeholder="Patient name" name="deletePatientName"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="deletePatientGender">PATIENT GENDER:</label> <select
@@ -327,20 +350,20 @@
 								<label for="deletePatientDateOfBirth">PATIENT DATE OF
 									BIRTH:</label> <input type="date" class="form-control"
 									id="deletePatientDateOfBirth" placeholder="Patient date of birth"
-									name="deletePatientDateOfBirth" style="width: 450px;">
+									name="deletePatientDateOfBirth" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="deletePatientPhoneNumber">PATIENT PHONE
 									NUMBER:</label> <input type="text" class="form-control"
 									id="deletePatientPhoneNumber" placeholder="Patient phone number"
 									name="deletePatientPhoneNumber" required="required"
-									style="width: 450px;">
+									style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="deletePatientAddress">PATIENT ADDRESS:</label> <input
 									type="text" class="form-control" id="deletePatientAddress"
 									placeholder="Patient phone number" name="deletePatientAddress"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<button type="submit" id="delete">Delete patient</button>
 						</form>

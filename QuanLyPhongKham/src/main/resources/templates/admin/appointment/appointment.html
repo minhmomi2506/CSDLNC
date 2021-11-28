@@ -241,65 +241,129 @@
 			<!-- Main content -->
 			<section class="content">
 				<div class="row">
-					<div class="col-sm-4">
-						ADD DEPARTMENT
-						<form id="addDepartmentForm">
-							<div class="form-group">
-								<label for="departmentName">DEPARTMENT NAME:</label> <input
-									type="text" class="form-control" id="departmentName"
-									placeholder="Department name" name="departmentName"
-									required="required" style="width: 350px;">
-							</div>
-							<button type="submit" id="add">Add department</button>
-						</form>
-					</div>
-					<div class="col-sm-4">
-						EDIT DEPARTMENT
-						<form id="editDepartmentForm">
+					<div class="col-sm-6">
+						EDIT APPOINTMENT
+						<form id="editAppointmentForm">
 							<div class="form-group" hidden="hidden">
-								<label for="editDepartmentID" hidden="hidden">DEPARTMENT
+								<label for="editAppointmentID" hidden="hidden">APPOINTMENT
 									ID:</label> <input type="text" class="form-control"
-									id="editDepartmentID" placeholder="Department id"
-									name="editDepartmentID" required="required"
+									id="editAppointmentID" placeholder="Appointment id"
+									name="editAppointmentID" required="required"
 									style="width: 350px;" hidden="hidden">
 							</div>
 							<div class="form-group">
-								<label for="editDepartmentName">DEPARTMENT NAME:</label> <input
-									type="text" class="form-control" id="editDepartmentName"
-									placeholder="Department name" name="editDepartmentName"
-									required="required" style="width: 350px;">
+								<label for="editPatientName">PATIENT NAME:</label> <input
+									type="text" class="form-control" id="editPatientName"
+									placeholder="Patient name" name="editPatientName"
+									required="required" style="width: 450px;">
 							</div>
-							<button type="submit" id="edit">Edit department</button>
+							<div class="form-group">
+								<label for="editPatientGender">PATIENT GENDER:</label> <select
+									name="editPatientGender" required="required"
+									id="editPatientGender">
+									<option>Male</option>
+									<option>Female</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="editPatientDateOfBirth">PATIENT DATE OF
+									BIRTH:</label> <input type="date" class="form-control"
+									id="editPatientDateOfBirth" placeholder="Patient date of birth"
+									name="editPatientDateOfBirth" style="width: 450px;"
+									required="required">
+							</div>
+							<div class="form-group">
+								<label for="editPatientPhoneNumber">PATIENT PHONE
+									NUMBER:</label> <input type="text" class="form-control"
+									id="editPatientPhoneNumber" placeholder="Patient phone number"
+									name="editPatientPhoneNumber" required="required"
+									style="width: 450px;">
+							</div>
+							<div class="form-group">
+								<label for="editPatientAddress">PATIENT ADDRESS:</label> <input
+									type="text" class="form-control" id="editPatientAddress"
+									placeholder="Patient address" name="editPatientAddress"
+									required="required" style="width: 450px;">
+							</div>
+							<div class="form-group">
+								<label for="editAppointmentDate">APPOINTMENT DATE:</label> <input
+									type="date" class="form-control" id="editAppointmentDate"
+									placeholder="Appointment date" name="editAppointmentDate"
+									style="width: 450px;" required="required">
+							</div>
+							<button type="submit" id="edit">Edit appointment</button>
 						</form>
 					</div>
-					<div class="col-sm-4">
-						DELETE DEPARTMENT
-						<form id="deleteDepartmentForm">
+					<div class="col-sm-6">
+						DELETE APPOINTMENT
+						<form id="deleteAppointmentForm">
 							<div class="form-group" hidden="hidden">
-								<label for="deleteDepartmentID" hidden="hidden">DEPARTMENT
+								<label for="deleteAppointmentID" hidden="hidden">APPOINTMENT
 									ID:</label> <input type="text" class="form-control"
-									id="deleteDepartmentID" placeholder="Department id"
-									name="deleteDepartmentID" required="required"
+									id="deleteAppointmentID" placeholder="Appointment id"
+									name="deleteAppointmentID" required="required"
 									style="width: 350px;" hidden="hidden">
 							</div>
 							<div class="form-group">
-								<label for="deleteDepartmentName">DEPARTMENT NAME:</label> <input
-									type="text" class="form-control" id="deleteDepartmentName"
-									placeholder="Department name" name="deleteDepartmentName"
-									required="required" style="width: 350px;">
+								<label for="deletePatientName">PATIENT NAME:</label> <input
+									type="text" class="form-control" id="deletePatientName"
+									placeholder="Patient name" name="deletePatientName"
+									required="required" style="width: 450px;">
 							</div>
-							<button type="submit" id="delete">Delete department</button>
+							<div class="form-group">
+								<label for="deletePatientGender">PATIENT GENDER:</label> <select
+									name="deletePatientGender" required="required"
+									id="deletePatientGender">
+									<option>Male</option>
+									<option>Female</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="deletePatientDateOfBirth">PATIENT DATE OF
+									BIRTH:</label> <input type="date" class="form-control"
+									id="deletePatientDateOfBirth" placeholder="Patient date of birth"
+									name="deletePatientDateOfBirth" style="width: 450px;"
+									required="required">
+							</div>
+							<div class="form-group">
+								<label for="deletePatientPhoneNumber">PATIENT PHONE
+									NUMBER:</label> <input type="text" class="form-control"
+									id="deletePatientPhoneNumber" placeholder="Patient phone number"
+									name="deletePatientPhoneNumber" required="required"
+									style="width: 450px;">
+							</div>
+							<div class="form-group">
+								<label for="deletePatientAddress">PATIENT ADDRESS:</label> <input
+									type="text" class="form-control" id="deletePatientAddress"
+									placeholder="Patient address" name="deletePatientAddress"
+									required="required" style="width: 450px;">
+							</div>
+							<div class="form-group">
+								<label for="deleteAppointmentDate">APPOINTMENT DATE:</label> <input
+									type="date" class="form-control" id="deleteAppointmentDate"
+									placeholder="Appointment date" name="deleteAppointmentDate"
+									style="width: 450px;" required="required">
+							</div>
+							<button type="submit" id="delete">Delete appointment</button>
 						</form>
 					</div>
 				</div>
 				<div class="col-12">
 					<hr>
-					<input type="text" id="searchDepartments"
-						placeholder="Search department" style="width: 300px;">
-					<table class="table" id="departmentListTable">
+					<input type="text" id="searchAppointments"
+						placeholder="Search patient name or phone number"
+						style="width: 300px;">
+					<hr>
+					<table class="table" id="appointmentListTable"
+						style="background-color: black">
 						<thead class="thead-dark">
 							<tr>
-								<th scope="col">NAME</th>
+								<th scope="col">FULL NAME</th>
+								<th scope="col">GENDER</th>
+								<th scope="col">DATE_OF_BIRTH</th>
+								<th scope="col">PHONE NUMBER</th>
+								<th scope="col">ADDRESS</th>
+								<th scope="col">APPOINTMENT DATE</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -335,6 +399,6 @@
 		var csrfHeader = "[[${_csrf.headerName}]]";
 		var csrfToken = "[[${_csrf.token}]]";
 	</script>
-	<script th:src="@{/jsFile/departmentAction.js}"></script>
+	<script th:src="@{/jsFile/patientAppointmentAction.js}"></script>
 </body>
 </html>

@@ -179,14 +179,37 @@
 				<nav class="mt-2">
 					<ul class="nav nav-pills nav-sidebar flex-column"
 						data-widget="treeview" role="menu" data-accordion="false">
-						<li class="nav-header" style="font-weight: bold;" th:if="${role}">EXAMINATION</li>
-						<li class="nav-item"><a class="nav-link"
-							th:href="@{/Examination}"> <i class="nav-icon fas fa-list"></i>
-								List examinations
+						<li class="nav-item"><a class="nav-link" th:href="@{/doctor}">
+								<i class="nav-icon fas fa-user-nurse"></i>Doctors
 						</a></li>
-						<li class="nav-header" style="font-weight: bold;" th:if="${role}">TEST</li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/patient}"> <i
+								class="nav-icon fas fa-user-injured"></i>Patients
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/examination}"> <i class="nav-icon fas fa-list"></i>Examinations
+						</a></li>
 						<li class="nav-item"><a class="nav-link" th:href="@{/test}">
-								<i class="nav-icon fas fa-list"></i> List tests
+								<i class="nav-icon fas fa-diagnoses"></i> Tests
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/medicine}"> <i class="nav-icon fas fa-capsules"></i>
+								Medicines
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/medicalNote}"> <i class="nav-icon fas fa-list"></i>
+								Medical notes
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/appointment}"> <i
+								class="nav-icon fas fa-calendar-check"></i> Appointments
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/statistic}"> <i
+								class="nav-icon fas fa-money-check-alt"></i> Statistic
+						</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/logout}">
+								<i class="nav-icon fas fa-sign-out"></i> Logout
 						</a></li>
 					</ul>
 				</nav>
@@ -225,13 +248,13 @@
 								<label for="departmentName">MEDICINE NAME:</label> <input
 									type="text" class="form-control" id="medicineName"
 									placeholder="Medicine name" name="medicineName"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="departmentName">MEDICINE PRICE:</label> <input
 									type="text" class="form-control" id="medicinePrice"
 									placeholder="Medicine price" name="medicinePrice"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<button type="submit" id="add">Add medicine</button>
 						</form>
@@ -240,23 +263,22 @@
 						EDIT MEDICINE
 						<form id="editMedicineForm">
 							<div class="form-group" hidden="hidden">
-								<label for="editMedicineID" hidden="hidden">MEDICINE
-									ID:</label> <input type="text" class="form-control"
-									id="editMedicineID" placeholder="Medicine id"
-									name="editMedicine" required="required"
-									style="width: 450px;" hidden="hidden">
+								<label for="editMedicineID" hidden="hidden">MEDICINE ID:</label>
+								<input type="text" class="form-control" id="editMedicineID"
+									placeholder="Medicine id" name="editMedicine"
+									required="required" style="width: 350px;" hidden="hidden">
 							</div>
 							<div class="form-group">
 								<label for="editMedicineName">MEDICINE NAME:</label> <input
 									type="text" class="form-control" id="editMedicineName"
 									placeholder="Department name" name="editMedicineName"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="editMedicinePrice">MEDICINE PRICE:</label> <input
 									type="text" class="form-control" id="editMedicinePrice"
 									placeholder="Medicine price" name="editMedicinePrice"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<button type="submit" id="edit">Edit medicine</button>
 						</form>
@@ -268,20 +290,20 @@
 								<label for="deleteMedicineID" hidden="hidden">MEDICINE
 									ID:</label> <input type="text" class="form-control"
 									id="deleteMedicineID" placeholder="Medicine id"
-									name="deleteMedicine" required="required"
-									style="width: 450px;" hidden="hidden">
+									name="deleteMedicine" required="required" style="width: 350px;"
+									hidden="hidden">
 							</div>
 							<div class="form-group">
 								<label for="deleteMedicineName">MEDICINE NAME:</label> <input
 									type="text" class="form-control" id="deleteMedicineName"
 									placeholder="Department name" name="deleteMedicineName"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<div class="form-group">
 								<label for="deleteMedicinePrice">MEDICINE PRICE:</label> <input
 									type="text" class="form-control" id="deleteMedicinePrice"
 									placeholder="Medicine price" name="deleteMedicinePrice"
-									required="required" style="width: 450px;">
+									required="required" style="width: 350px;">
 							</div>
 							<button type="submit" id="delete">Delete medicine</button>
 						</form>

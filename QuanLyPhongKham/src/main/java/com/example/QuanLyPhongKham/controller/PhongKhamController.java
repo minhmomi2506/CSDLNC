@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.QuanLyPhongKham.entity.User;
 import com.example.QuanLyPhongKham.repo.UserRepo;
+import com.example.QuanLyPhongKham.service.CartService;
 import com.example.QuanLyPhongKham.service.UserService;
 
 @Controller
@@ -26,6 +27,9 @@ public class PhongKhamController {
 	
 	@Autowired
 	private UserRepo userRepo;
+	
+	@Autowired
+	private CartService cartService;
 
 	/*LOGIN*/
 	@RequestMapping("/login")
@@ -97,6 +101,12 @@ public class PhongKhamController {
 		return  "admin/medicalNote/medicalNoteList";
 	}
 	
+	/*LIST MEDICAL NOTES*/
+	@GetMapping("/appointment")
+	public String appointment() {
+		return  "admin/appointment/appointment";
+	}
+	
 	/*LIST DEPARTMENTS*/
 	@GetMapping("/department")
 	public String department() {
@@ -109,11 +119,16 @@ public class PhongKhamController {
 		return "admin/medicine/medicineList";
 	}
 	
+	/*STATISTIC*/
+	@GetMapping("/statistic")
+	public String statistic() {
+		return "admin/statistic/statistic";
+	}
 	
 	/*USER CONTROLLER*/
 	/*LIST APPOINTMENT*/
 	@GetMapping("/yourAppointment")
-	public String appointment() {
+	public String yourAppointment() {
 		return "user/appointment/appointmentList";
 	}
 	
@@ -121,5 +136,26 @@ public class PhongKhamController {
 	@GetMapping("/yourMedicine")
 	public String yourMedicine() {
 		return "user/medicine/medicineList";
+	}
+	
+	/*CART*/
+	@GetMapping("/cart")
+	public String cart() {
+		return "user/cart/cart";
+	}
+	
+	/* BUY MEDICINE FROM CART */
+	@PostMapping("/checkOut")
+	public String checkOut(String address, String phoneNumber, Principal principal) {
+		String username = principal.getName();
+		User user = userRepo.getUserByUsername(username);
+		cartService.checkOut(user, address, phoneNumber);
+		return "redirect:/cart";
+	}
+	
+	/*BILL*/
+	@GetMapping("/bill")
+	public String bill() {
+		return "user/bill/bill";
 	}
 }
