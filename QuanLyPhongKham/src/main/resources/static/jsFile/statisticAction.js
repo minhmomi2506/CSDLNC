@@ -28,12 +28,11 @@ function watchStatistic(link) {
 		url: url
 	}).done(function(result) {
 		billsByMonthAndYear(month, year);
-		document.getElementById("statisticResult").innerHTML = "STATISTIC: " + result + " VND";
+		document.getElementById("billStatisticResult").innerHTML = "STATISTIC: " + result + " VND";
 	});
 }
 
 function billsByMonthAndYear(month, year) {
-	document.getElementById("billsByMonthAndYearTitle").innerHTML = "STATISTIC TABLE IN " + month + "/" + year;
 	$("#medicineTbody").empty();
 	url = contextPath + "billsByMonthAndYear/" + month + "/" + year;
 	$.ajax({
@@ -41,7 +40,7 @@ function billsByMonthAndYear(month, year) {
 		url: url
 	}).done(function(result) {
 		$.each(result , function(i , bill) {
-			$("#medicineTbody").append("<tr><td>"+bill.medicine.medicineName+"</td><td>"+bill.quantity+"</td><td>"+bill.medicine.price+"</td><td>"+bill.toTal+"</td><td>"+bill.buyDate+"</td><td>"+bill.phoneNumber+"</td><td>"+bill.user.username+"</td><td>"+bill.address+"</td></tr>");
+			$("#medicineTbody").append("<tr><td>"+bill.billId+"</td><td>"+bill.phoneNumber+"</td><td>"+bill.address+"</td><td>"+bill.toTal+"</td><td>"+bill.buyDate+"</td></tr>");
 		});
 	});
 }

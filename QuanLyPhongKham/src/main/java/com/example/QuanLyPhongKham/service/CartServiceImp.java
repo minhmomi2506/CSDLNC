@@ -1,15 +1,16 @@
 package com.example.QuanLyPhongKham.service;
 
-import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.example.QuanLyPhongKham.entity.Bill;
+import com.example.QuanLyPhongKham.entity.BillDetail;
 import com.example.QuanLyPhongKham.entity.Cart;
 import com.example.QuanLyPhongKham.entity.Medicine;
 import com.example.QuanLyPhongKham.entity.User;
+import com.example.QuanLyPhongKham.repo.BillDetailRepo;
 import com.example.QuanLyPhongKham.repo.BillRepo;
 import com.example.QuanLyPhongKham.repo.CartRepo;
 import com.example.QuanLyPhongKham.repo.MedicineRepo;
@@ -25,6 +26,9 @@ public class CartServiceImp implements CartService {
 
 	@Autowired
 	private BillRepo billRepo;
+	
+	@Autowired
+	private BillDetailRepo billDetailRepo;
 
 	@Override
 	public int addMedicine(Long medicineId, int quantity, User user) {
@@ -56,20 +60,27 @@ public class CartServiceImp implements CartService {
 	public void checkOut(User user, String address, String phoneNumber) {
 		// TODO Auto-generated method stub
 		List<Cart> carts = cartRepo.findByUser(user);
-		long millis = System.currentTimeMillis();
-		Date date = new Date(millis);
+		java.util.Date date = new java.util.Date();
+		Bill bill = new Bill();
+		bill.setBuyDate(date);
+		bill.setUser(user);
+		billRepo.save(bill);
+		bill.setBillId("HOADON"+bill.getId());
+		int total = 0;
 		for (Cart cart : carts) {
-			Bill bill = new Bill();
-			bill.setBuyDate(date);
+			BillDetail billDetail = new BillDetail();
 			bill.setAddress(address);
 			bill.setPhoneNumber(phoneNumber);
-			bill.setMedicinePrice(cart.getMedicine().getPrice());
-			bill.setQuantity(cart.getQuantity());
-			bill.setUser(cart.getUser());
-			bill.setMedicine(cart.getMedicine());
-			bill.setToTal(cart.getTotal());
-			billRepo.save(bill);
+			billDetail.setMedicinePrice(cart.getMedicine().getPrice());
+			billDetail.setQuantity(cart.getQuantity());
+			billDetail.setMedicine(cart.getMedicine());
+			billDetail.setMoney(cart.getQuantity() * cart.getMedicine().getPrice());
+			billDetail.setBill(bill);
+			total += cart.getTotal();
+			billDetailRepo.save(billDetail);
 		}
+		bill.setToTal(total);
+		billRepo.save(bill);
 		cartRepo.deleteByUser(user.getId());
 	}
 

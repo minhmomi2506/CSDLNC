@@ -1,6 +1,5 @@
 package com.example.QuanLyPhongKham.controller;
 
-import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,24 +8,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.QuanLyPhongKham.entity.Bill;
-import com.example.QuanLyPhongKham.entity.User;
-import com.example.QuanLyPhongKham.repo.UserRepo;
 import com.example.QuanLyPhongKham.service.BillService;
 
 @RestController
 public class BillController {
 	@Autowired
 	private BillService billService;
-	
-	@Autowired
-	private UserRepo userRepo;
-	
-	@GetMapping("/listBills")
-	public List<Bill> getAll(Principal principal){
-		String username = principal.getName();
-		User user = userRepo.getUserByUsername(username);
-		return billService.getAll(user);
-	}
 	
 	/* STATISTICS */
 	@GetMapping("/statistic/{month}/{year}")

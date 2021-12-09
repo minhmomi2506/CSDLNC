@@ -1,6 +1,7 @@
 package com.example.QuanLyPhongKham.controller;
 
 import java.security.Principal;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -15,7 +16,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.QuanLyPhongKham.entity.Bill;
 import com.example.QuanLyPhongKham.entity.User;
+import com.example.QuanLyPhongKham.repo.BillRepo;
 import com.example.QuanLyPhongKham.repo.UserRepo;
 import com.example.QuanLyPhongKham.service.CartService;
 import com.example.QuanLyPhongKham.service.UserService;
@@ -24,6 +27,9 @@ import com.example.QuanLyPhongKham.service.UserService;
 public class PhongKhamController {
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private BillRepo billRepo;
 	
 	@Autowired
 	private UserRepo userRepo;
@@ -119,6 +125,14 @@ public class PhongKhamController {
 		return "admin/medicine/medicineList";
 	}
 	
+	/*LIST BILLS USER*/
+	@GetMapping("/listBills")
+	public String bill(Model model) {
+		List<Bill> bills = billRepo.findAll();
+		model.addAttribute("bills", bills);
+		return "admin/bill/bill";
+	}
+	
 	/*STATISTIC*/
 	@GetMapping("/statistic")
 	public String statistic() {
@@ -155,7 +169,11 @@ public class PhongKhamController {
 	
 	/*BILL*/
 	@GetMapping("/bill")
-	public String bill() {
+	public String bill(Model model, Principal principal) {
+		String username = principal.getName();
+		User user = userRepo.getUserByUsername(username);
+		List<Bill> bills = billRepo.findByUser(user);
+		model.addAttribute("bills", bills);
 		return "user/bill/bill";
 	}
 }

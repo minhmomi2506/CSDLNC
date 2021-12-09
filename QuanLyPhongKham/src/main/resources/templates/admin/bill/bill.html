@@ -240,27 +240,64 @@
 			<!-- /.content-header -->
 			<!-- Main content -->
 			<section class="content">
-				<div class="col-12">
-					<hr>
-					<table class="table" id="billListTable"
-						style="background-color: black">
-						<thead class="thead-dark">
-							<tr>
-								<th scope="col">FULL NAME</th>
-								<th scope="col">GENDER</th>
-								<th scope="col">DATE_OF_BIRTH</th>
-								<th scope="col">PHONE NUMBER</th>
-								<th scope="col">ADDRESS</th>
-								<th scope="col">APPOINTMENT DATE</th>
-							</tr>
-						</thead>
-						<tbody>
+				<hr>
+				<div class="row">
+					<div class="col-12">
+						<hr>
+						<table class="table" id="billListTable">
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col">BILL ID</th>
+									<th scope="col">PHONE NUMBER</th>
+									<th scope="col">ADDRESS</th>
+									<th scope="col">TOTAL</th>
+									<th scope="col">BUY DATE</th>
+									<th scope="col">ACTION</th>
+								</tr>
+							</thead>
+							<tbody th:each="bill , status : ${bills}">
+								<tr>
+									<td>[[*{bill.billId}]]</td>
+									<td>[[*{bill.phoneNumber}]]</td>
+									<td>[[*{bill.address}]]</td>
+									<td>[[*{bill.toTal}]]</td>
+									<td>[[*{bill.buyDate}]]</td>
+									<td><a href="" class="link-detail" data-toggle="modal"
+										th:data-target="'#billDetailModal'+${bill.id}"
+										th:rowNumber="${bill.id}">Watch bill details</a>
+										<div class="modal" th:id="'billDetailModal'+${bill.id}"
+											tabindex="-1" role="dialog" style="width: 700px; margin: auto;">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h4 class="modal-title">LIST BILL DETAILS</h4>
+													</div>
+													<div class="modal-body">
+														<table id="billDetailTable">
+															<thead class="thead-dark">
+																<tr>
+																	<th scope="col">NAME</th>
+																	<th scope="col">PRICE</th>
+																	<th scope="col">QUANTITY</th>
+																	<th scope="col">MONEY</th>
+																</tr>
+															</thead>
+															<tbody>
 
-						</tbody>
-					</table>
-					<hr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+										</div></td>
+								</tr>
+							</tbody>
+						</table>
+						<hr>
+					</div>
 				</div>
 			</section>
+
 			<!-- /.content -->
 		</div>
 		<!-- /.content-wrapper -->
@@ -287,6 +324,6 @@
 		var csrfHeader = "[[${_csrf.headerName}]]";
 		var csrfToken = "[[${_csrf.token}]]";
 	</script>
-	<script th:src="@{/jsFile/patientAppointmentAction.js}"></script>
+	<script th:src="@{/jsFileUser/billAction.js}"></script>
 </body>
 </html>

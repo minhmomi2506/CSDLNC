@@ -1,19 +1,23 @@
-/**
+/*/**
  * 
  */
 $(document).ready(function() {
-	getListBills();
+	$(".link-detail").on("click", function(evt) {
+		evt.preventDefault();
+		getListBillDetail($(this));
+	})
 });
 
-function getListBills(){
-	$("#billListTable tbody").empty();
+function getListBillDetail(link) {
+	rowNumber = link.attr("rowNumber");
+	$("#billDetailTable tbody").empty();
 	$.ajax({
 		type: "GET",
-		url: contextPath + "listBills"
+		url: contextPath + "listBillDetail/" + rowNumber
 	}).done(function(result) {
-		$.each(result, function(index, bill) {
-			var row = "<tr><td hidden = 'hidden'>" + bill.id + "</td><td>" + bill.medicine.medicineName + "</td><td>" + bill.medicine.price + "</td><td>" + bill.quantity + "</td><td>" + bill.toTal + "</td><td>" + bill.phoneNumber + "</td><td>" + bill.address + "</td><td>" + bill.buyDate + "</td></tr>";
-			$("#billListTable tbody").append(row);
+		$.each(result, function(index, billDetail) {
+			var row = "<tr><td>" + billDetail.medicine.medicineName + "</td><td>" + billDetail.medicinePrice + "</td><td>" + billDetail.quantity + "</td><td>" + billDetail.money + "</td></tr>";
+			$("#billDetailTable tbody").append(row);
 		});
 	});
 }
