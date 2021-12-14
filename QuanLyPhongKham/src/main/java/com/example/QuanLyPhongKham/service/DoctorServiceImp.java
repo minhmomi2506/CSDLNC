@@ -17,7 +17,7 @@ public class DoctorServiceImp implements DoctorService {
 	@Override
 	public List<Doctor> getAll() {
 		// TODO Auto-generated method stub
-		return doctorRepo.findAll();
+		return doctorRepo.findAllDoctors();
 	}
 	
 	@Override

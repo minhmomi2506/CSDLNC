@@ -16,7 +16,7 @@ public class MedicineServiceImp implements MedicineService {
 
 	@Override
 	public List<Medicine> getAll() {
-		return medicineRepo.findAll();
+		return medicineRepo.findAllMedicines();
 	}
 
 	@Override
