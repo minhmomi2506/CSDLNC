@@ -15,6 +15,5 @@ public interface PatientService {
 	Patient editPatient(Long id, Patient patient);
 	
 	void deleteById(Long id);
-	
-	List<Patient> searchPatients(String searchString);
+
 }

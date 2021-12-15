@@ -11,6 +11,8 @@ public interface MedicalNoteService {
 	MedicalNote addMedicalNote(MedicalNote medicalNote, Long patientId, Long doctorId, Long examinationId);
 
 	List<MedicalNote> getAll();
+	
+	
 
 	int totalMoney(int month, int year);
 

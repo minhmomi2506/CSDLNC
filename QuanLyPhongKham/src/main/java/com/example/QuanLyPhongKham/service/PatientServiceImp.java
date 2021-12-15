@@ -1,7 +1,8 @@
 package com.example.QuanLyPhongKham.service;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -10,6 +11,7 @@ import com.example.QuanLyPhongKham.entity.Patient;
 import com.example.QuanLyPhongKham.repo.PatientRepo;
 
 @Component
+@Transactional
 public class PatientServiceImp implements PatientService {
 	
 	@Autowired
@@ -18,7 +20,7 @@ public class PatientServiceImp implements PatientService {
 	@Override
 	public List<Patient> getAll() {
 		// TODO Auto-generated method stub
-		return patientRepo.findAll();
+		return patientRepo.findAllPatients();
 	}
 	
 	@Override
@@ -41,18 +43,6 @@ public class PatientServiceImp implements PatientService {
 	@Override
 	public void deleteById(Long id) {
 		// TODO Auto-generated method stub
-		patientRepo.deleteById(id);
+		patientRepo.deletePatient(id);
 	}
-	
-	@Override
-	public List<Patient> searchPatients(String searchString) {
-		List<Patient> patients = new ArrayList<Patient>();
-		for(Patient patient : patients) {
-			if(patient.getFullName().toLowerCase().contains(searchString.toLowerCase()) || patient.getPhoneNumber() == searchString) {
-				patients.add(patient);
-			}
-		}
-		return patients;
-	}
-
 }

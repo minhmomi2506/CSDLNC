@@ -47,7 +47,7 @@ public class MedicalNoteServiceImp implements MedicalNoteService {
 	
 	@Override
 	public List<MedicalNote> getAll() {
-		return medicalNoteRepo.findAll();
+		return medicalNoteRepo.findAllMedicalNotes();
 	}
 	
 	@SuppressWarnings("deprecation")

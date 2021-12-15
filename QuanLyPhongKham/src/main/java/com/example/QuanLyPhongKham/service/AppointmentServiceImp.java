@@ -31,7 +31,7 @@ public class AppointmentServiceImp implements AppointmentService {
 	@Override
 	public List<Appointment> getAll() {
 		// TODO Auto-generated method stub
-		return appointmentRepo.findAll();
+		return appointmentRepo.findAllAppointments();
 	}
 	
 	@Override

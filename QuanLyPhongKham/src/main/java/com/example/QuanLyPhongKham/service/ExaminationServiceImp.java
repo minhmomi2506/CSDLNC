@@ -20,7 +20,7 @@ public class ExaminationServiceImp implements ExaminationService {
 	@Override
 	public List<Examination> getAll() {
 		// TODO Auto-generated method stub
-		return examinationRepo.findAll();
+		return examinationRepo.findAllExaminations();
 	}
 
 	@Override

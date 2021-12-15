@@ -2,6 +2,8 @@ package com.example.QuanLyPhongKham.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -9,6 +11,7 @@ import com.example.QuanLyPhongKham.entity.Tests;
 import com.example.QuanLyPhongKham.repo.TestsRepo;
 
 @Component
+@Transactional
 public class TestServiceImp implements TestService {
 	@Autowired
 	private TestsRepo testsRepo;
@@ -16,13 +19,13 @@ public class TestServiceImp implements TestService {
 	@Override
 	public List<Tests> getAll() {
 		// TODO Auto-generated method stub
-		return testsRepo.findAll();
+		return testsRepo.findAllTests();
 	}
 	
 	@Override
 	public Tests addTest(Tests test) {
 		// TODO Auto-generated method stub
-		return testsRepo.save(test);
+		return testsRepo.insertTest(test.getTestName(), test.getPrice());
 	}
 	
 	@Override
@@ -36,7 +39,7 @@ public class TestServiceImp implements TestService {
 	@Override
 	public void deleteById(Long id) {
 		// TODO Auto-generated method stub
-		testsRepo.deleteById(id);
+		testsRepo.deleteTest(id);
 	}
 
 }

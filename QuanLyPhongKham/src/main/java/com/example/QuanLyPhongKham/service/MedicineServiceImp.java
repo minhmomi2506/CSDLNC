@@ -2,6 +2,8 @@ package com.example.QuanLyPhongKham.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -9,6 +11,7 @@ import com.example.QuanLyPhongKham.entity.Medicine;
 import com.example.QuanLyPhongKham.repo.MedicineRepo;
 
 @Component
+@Transactional
 public class MedicineServiceImp implements MedicineService {
 	
 	@Autowired
@@ -35,6 +38,6 @@ public class MedicineServiceImp implements MedicineService {
 	@Override
 	public void deleteById(Long id) {
 		// TODO Auto-generated method stub
-		medicineRepo.deleteById(id);
+		medicineRepo.deleteMedicine(id);
 	}
 }

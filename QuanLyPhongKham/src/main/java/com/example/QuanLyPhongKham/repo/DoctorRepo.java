@@ -12,6 +12,6 @@ import com.example.QuanLyPhongKham.entity.Doctor;
 public interface DoctorRepo extends JpaRepository<Doctor, Long> {
 	Doctor findDoctorById(Long id);
 
-	@Query(value = "CALL findAllDoctors();", nativeQuery = true)
+	@Query(value = "{CALL findAllDoctors()}", nativeQuery = true)
 	List<Doctor> findAllDoctors();
 }

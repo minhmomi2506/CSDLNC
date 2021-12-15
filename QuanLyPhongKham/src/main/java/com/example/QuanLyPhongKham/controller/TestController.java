@@ -27,8 +27,8 @@ public class TestController {
 	}
 	
 	@PostMapping("/addTest")
-	public ResponseEntity<Tests> addExamination(@RequestBody Tests test) {
-		return new ResponseEntity<Tests>(testService.addTest(test), HttpStatus.OK);
+	public Tests addExamination(@RequestBody Tests test) {
+		return testService.addTest(test);
 	}
 	
 	@PutMapping("/editTest/{id}")
