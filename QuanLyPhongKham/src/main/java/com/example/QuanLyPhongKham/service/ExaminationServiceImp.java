@@ -41,7 +41,7 @@ public class ExaminationServiceImp implements ExaminationService {
 	@Override
 	public void deleteById(Long id) {
 		// TODO Auto-generated method stub
-		examinationRepo.deleteById(id);
+		examinationRepo.deleteExamination(id);
 	}
 
 	@Override

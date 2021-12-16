@@ -51,7 +51,7 @@ public class AppointmentServiceImp implements AppointmentService {
 	@Override
 	public void deleteById(Long id) {
 		// TODO Auto-generated method stub
-		appointmentRepo.deleteById(id);
+		appointmentRepo.deleteAppointment(id);;
 	}
 
 }

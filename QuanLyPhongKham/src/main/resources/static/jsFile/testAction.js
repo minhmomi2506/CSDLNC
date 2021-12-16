@@ -82,6 +82,8 @@ function addTest(link) {
 		}
 	}).done(function() {
 		getListTests();
+	}).fail(function() {
+
 	});
 }
 
@@ -107,6 +109,8 @@ function editTest(link) {
 		$("#editTestName").val('');
 		$("#editTestPrice").val('');
 		getListTests();
+	}).fail(function() {
+
 	});
 }
 

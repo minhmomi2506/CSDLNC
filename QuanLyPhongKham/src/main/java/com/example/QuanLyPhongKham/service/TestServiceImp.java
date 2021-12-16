@@ -25,7 +25,7 @@ public class TestServiceImp implements TestService {
 	@Override
 	public Tests addTest(Tests test) {
 		// TODO Auto-generated method stub
-		return testsRepo.insertTest(test.getTestName(), test.getPrice());
+		return testsRepo.save(test);
 	}
 	
 	@Override

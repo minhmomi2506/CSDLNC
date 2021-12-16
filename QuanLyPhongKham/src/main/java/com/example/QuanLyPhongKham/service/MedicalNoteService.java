@@ -12,8 +12,6 @@ public interface MedicalNoteService {
 
 	List<MedicalNote> getAll();
 	
-	
-
 	int totalMoney(int month, int year);
 
 	List<MedicalNote> getAllByMonthAndYear(int month, int year);

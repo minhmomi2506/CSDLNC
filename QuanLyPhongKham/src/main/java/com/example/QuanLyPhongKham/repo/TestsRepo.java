@@ -18,13 +18,10 @@ public interface TestsRepo extends JpaRepository<Tests, Long> {
 	Tests findTestsById(Long id);
 
 	@Query(value = "{CALL findAllTests()}", nativeQuery = true)
-	List<Tests> findAllTests();
-
-	@Query(value = "{CALL insertTest(:testName, :price)}", nativeQuery = true)
-	Tests insertTest(@Param("testName") String testName, @Param("price") int price);
+	public List<Tests> findAllTests();
 
 	@Query(value = "CALL deleteTest(:idDelete);", nativeQuery = true)
 	@Transactional
 	@Modifying
-	void deleteTest(@Param("idDelete") Long id);
+	public void deleteTest(@Param("idDelete") Long id);
 }

@@ -23,7 +23,7 @@ public class BillDetailServiceImp implements BillDetailService {
 	public List<BillDetail> findByBill(Long id) {
 		// TODO Auto-generated method stub
 		Bill bill = billRepo.findBillById(id);
-		List<BillDetail> billDetails = billDetailRepo.findByBill(bill);
+		List<BillDetail> billDetails = billDetailRepo.billDetailByBill(bill.getId());
 		return billDetails;
 	}
 

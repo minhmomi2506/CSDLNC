@@ -1,6 +1,5 @@
 package com.example.QuanLyPhongKham.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ public class BillServiceImp implements BillService {
 	@Override
 	public List<Bill> getAll(User user) {
 		// TODO Auto-generated method stub
-		return billRepo.findByUser(user);
+		return billRepo.billByUser(user.getId());
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -35,18 +34,10 @@ public class BillServiceImp implements BillService {
 		}
 		return totalMoney;
 	}
-	
-	@SuppressWarnings("deprecation")
+
 	@Override
 		public List<Bill> getAllByMonthAndYear(int month , int year) {
-			List<Bill> bills = billRepo.findAll();
-			List<Bill> billsByMonthAndYear = new ArrayList<Bill>();
-			for(Bill bill : bills) {
-				if(bill.getBuyDate().getMonth() - month + 1 == 0 && bill.getBuyDate().getYear() - year + 1900 == 0) {
-					billsByMonthAndYear.add(bill);
-				}
-			}
-			return billsByMonthAndYear;
+			return billRepo.billByMonthAndYear(month, year);
 			
 		}
 
